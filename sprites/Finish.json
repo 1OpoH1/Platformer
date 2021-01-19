@@ -1,0 +1,15 @@
+{
+    "spriteSheetURL": "./img/finish.png",
+    "type":"character",
+    "size":[16,16],
+    "sprites":[
+        {
+            "name":"finish",
+            "x":0,
+            "y":0,
+            "scalefactor":2,
+            "colorKey":-1,
+            "collision":false
+        }
+    ]
+}

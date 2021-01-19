@@ -1,0 +1,47 @@
+{
+    "spriteSheetURL": "./img/bibas.png",
+    "type":"character",
+    "size":[14,18],
+    "sprites":[
+        {
+            "name":"biba-1",
+            "x":2,
+            "y":53,
+            "scalefactor":2,
+            "colorKey":-1,
+            "collision":false
+        },
+        {
+            "name":"biba-2",
+            "x":17,
+            "y":53,
+            "scalefactor":2,
+            "colorKey":-1,
+            "collision":false
+        },
+        {
+            "name": "biba-3",
+            "x":33,
+            "y": 53,
+            "scalefactor": 2,
+            "colorkey": -1,
+            "collision": false
+        },
+        {
+            "name": "biba-4",
+            "x":51,
+            "y": 53,
+            "scalefactor": 2,
+            "colorkey": -1,
+            "collision": false
+        },
+        {
+            "name":"biba-flat",
+            "x":3,
+            "y":4,
+            "scalefactor":2,
+            "colorKey":-1,
+            "collision":false
+        }
+    ]
+}
