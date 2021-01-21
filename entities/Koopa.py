@@ -38,8 +38,6 @@ class Koopa(EntityBase):
         elif self.alive == "sleeping":
             self.sleepingInShell(camera)
             self.checkEntityCollision()
-        elif self.alive == "shellBouncing":
-            self.shellBouncing(camera)
 
     def drawKoopa(self, camera):
         if self.leftrightTrait.direction == -1:
@@ -51,13 +49,6 @@ class Koopa(EntityBase):
                 pygame.transform.flip(self.animation.image, True, False),
                 (self.rect.x + camera.x, self.rect.y - 3),
             )
-
-    def shellBouncing(self, camera):
-        self.leftrightTrait.speed = 4
-        self.applyGravity()
-        self.animation.image = self.spriteCollection.get("koopa-hiding").image
-        self.drawKoopa(camera)
-        self.leftrightTrait.update()
 
     def sleepingInShell(self, camera):
         if self.timer < self.timeAfterDeath:

@@ -61,12 +61,6 @@ class Goomba(EntityBase):
             self.alive = None
         self.timer += 0.1
 
-    def drawFlatGoomba(self, camera):
-        self.screen.blit(
-            self.spriteCollection.get("biba-flat").image,
-            (self.rect.x + camera.x, self.rect.y - 3),
-        )
-
     def setPointsTextStartPosition(self, x, y):
         self.textPos = Vec2D(x, y)
 

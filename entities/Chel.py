@@ -43,7 +43,6 @@ class Chel(EntityBase):
         self.inAir = False
         self.game = True
         self.inJump = False
-        self.powerUpState = 0
         self.invincibilityFrames = 0
         self.traits = {
             "jumpTrait": JumpTrait(self),
@@ -100,8 +99,7 @@ class Chel(EntityBase):
         block.triggered = True
 
     def _onCollisionWithMob(self, mob, collisionState):
-        if isinstance(mob, RedMushroom) and mob.alive:
-            self.powerup(1)
+        if isinstance(mob, RedMushroom) and mob.alive:f
             self.killEntity(mob)
             self.sound.play_sfx(self.sound.powerup)
         elif collisionState.isTop and (mob.alive or mob.alive == "shellBouncing"):
@@ -126,18 +124,10 @@ class Chel(EntityBase):
                 self.sound.play_sfx(self.sound.kick)
             mob.alive = "shellBouncing"
         elif collisionState.isColliding and mob.alive and not self.invincibilityFrames:
-            if self.powerUpState == 0:
-                print('Gravity killed u')
-                self.gameOver()
-            elif self.powerUpState == 1:
-                self.powerUpState = 0
-                self.traits['goTrait'].updateAnimation(smallAnimation)
-                x, y = self.rect.x, self.rect.y
-                self.rect = pygame.Rect(x, y + 32, 32, 32)
-                self.invincibilityFrames = 60
-                self.sound.play_sfx(self.sound.pipe)
+            print('You died!')
+            self.gameOver()
         elif collisionState.isColliding and mob.alive == 'Finish':
-            print('Mob killed u')
+            print('You Win!!1!!')
             self.gameOver()
 
     def bounce(self):
@@ -180,11 +170,3 @@ class Chel(EntityBase):
     def setPos(self, x, y):
         self.rect.x = x
         self.rect.y = y
-        
-    def powerup(self, powerupID):
-        if self.powerUpState == 0:
-            if powerupID == 1:
-                self.powerUpState = 1
-                self.traits['goTrait'].updateAnimation(bigAnimation)
-                self.rect = pygame.Rect(self.rect.x, self.rect.y-32, 32, 64)
-                self.invincibilityFrames = 20
